@@ -6,11 +6,17 @@
   background-image: url('../public/icon-arrow-down.svg');
 }
 
-.divider {
+.divider_v {
   width: 1px;
   height: 32px;
   background-color: hsl(0, 0%, 91%);
   margin: 0 15px;
+}
+
+.divider_h {
+  width: 262px;
+  height: 1px;
+  background-color: hsl(0, 0%, 91%);
 }
 
 .switch {
