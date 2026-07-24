@@ -8,6 +8,7 @@
 @theme inline {
   --color-search-bar: hsl(0, 0%, 96%);
   --color-dark-heading: hsl(0, 0%, 18%);
+  --color-light-purple: hsl(274, 82%, 60%);
 }
 
 @media (prefers-color-scheme: dark) {

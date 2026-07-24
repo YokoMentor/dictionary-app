@@ -9,7 +9,7 @@
 .divider {
   width: 1px;
   height: 32px;
-  background-color: #979797;
+  background-color: hsl(0, 0%, 91%);
   margin: 0 15px;
 }
 
@@ -18,7 +18,7 @@
   display: inline-block;
   width: 40px;
   height: 20px;
-  background-color: #979797;
+  background-color: hsl(0, 0%, 46%);
   border-radius: 25px;
 }
 
@@ -45,6 +45,10 @@
 
 .icon_search {
   background-image: url('../public/icon-search.svg');
+}
+
+.icon_play {
+  background-image: url('../public/icon-play.svg');
 }
 
 @media (min-width: 768px) {
