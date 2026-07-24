@@ -43,5 +43,9 @@
   background-image: url('../public/icon-moon.svg');
 }
 
+.icon_search {
+  background-image: url('../public/icon-search.svg');
+}
+
 @media (min-width: 768px) {
 }
