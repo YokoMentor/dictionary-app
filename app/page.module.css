@@ -2,8 +2,15 @@
   background-image: url('../public/logo.svg');
 }
 
-.icon_moon {
-  background-image: url('../public/icon-moon.svg');
+.icon_arrow {
+  background-image: url('../public/icon-arrow-down.svg');
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: #979797;
+  margin: 0 15px;
 }
 
 .switch {
@@ -30,6 +37,10 @@
   background-color: white;
   border-radius: 50%;
   transition: all 0.3s;
+}
+
+.icon_moon {
+  background-image: url('../public/icon-moon.svg');
 }
 
 @media (min-width: 768px) {
