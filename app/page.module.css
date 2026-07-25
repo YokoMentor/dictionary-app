@@ -6,6 +6,10 @@
   background-image: url('../public/icon-arrow-down.svg');
 }
 
+.icon_new_window {
+  background-image: url('../public/icon-new-window.svg');
+}
+
 .divider_v {
   width: 1px;
   height: 32px;

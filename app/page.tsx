@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <div className='flex flex-col min-h-screen justify-center items-center'>
       <div className='flex flex-col justify-center items-center text-center w-[327px]'>
-        <div className='flex justify-between items-center text-center w-full'>
+        <div className='flex justify-between items-center text-center w-full mt-6'>
           <div className={`${styles.logo} w-[30px] h-[34px] bg-no-repeat bg-center bg-contain`}></div>
           <div className='flex flex-row items-center justify-center'>
             <button className={`${styles.icon_arrow} w-[98px] h-[24px] bg-no-repeat bg-right text-[14px] font-bold pl-1`}>Serif</button>
@@ -34,13 +34,32 @@ export default function Page() {
           </div>
           <div className='text-light-heading mt-6'>Meaning</div>
           <ul className={`${styles.ul}`}>
-            <li className={`${styles.li}`}>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
+            <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
             <li>A component of many instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.</li>
             <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.</li>
           </ul>
           <div className='flex items-center mt-3'>
             <div className='text-light-heading mr-6'>Synonyms</div>
             <div className='font-bold text-light-purple'>electronic keyboard</div>
+          </div>
+        </div>
+        <div className='flex flex-col text-left w-full mt-7'>
+          <div className='flex flex-row justify-between items-center'>
+            <div className='font-bold text-lg italic mr-4'>verb</div>
+            <div className={`${styles.divider_h}`}></div>
+          </div>
+          <div className='text-light-heading mt-6'>Meaning</div>
+          <ul className={`${styles.ul}`}>
+            <li>To type on a computer keyboard.</li>
+          </ul>
+          <div className='text-[15px] text-light-heading ml-6 mt-1'>“Keyboarding is the part of this job I hate the most.”</div>
+          <hr className='border-divider mt-8'/>
+        </div>
+        <div className='flex flex-col text-left text-[14px] mt-8 mb-12 w-full'>
+          <div className='text-light-heading underline mb-1'>Source</div>
+          <div className='flex'>
+            <div className='mr-2'>https://en.wiktionary.org/wiki/keyboard</div>
+            <div className={`${styles.icon_new_window} w-[14px] h-[14px]`}></div>
           </div>
         </div>
       </div>
