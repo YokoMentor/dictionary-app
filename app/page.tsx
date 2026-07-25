@@ -32,12 +32,16 @@ export default function Page() {
             <div className='font-bold text-lg italic mr-4'>noun</div>
             <div className={`${styles.divider_h}`}></div>
           </div>
-          <div className='mt-6'>Meaning</div>
+          <div className='text-light-heading mt-6'>Meaning</div>
           <ul className={`${styles.ul}`}>
             <li className={`${styles.li}`}>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
             <li>A component of many instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.</li>
             <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.</li>
           </ul>
+          <div className='flex items-center mt-3'>
+            <div className='text-light-heading mr-6'>Synonyms</div>
+            <div className='font-bold text-light-purple'>electronic keyboard</div>
+          </div>
         </div>
       </div>
     </div>
