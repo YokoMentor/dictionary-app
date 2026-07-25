@@ -57,5 +57,14 @@
   background-image: url('../public/icon-play.svg');
 }
 
+li::marker {
+  color: hsl(274, 82%, 50%);
+}
+
+.ul {
+  list-style-type: circle;
+  list-style-type: disc;
+}
+
 @media (min-width: 768px) {
 }
