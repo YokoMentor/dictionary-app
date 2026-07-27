@@ -83,4 +83,12 @@
 }
 
 @media (min-width: 768px) {
+  .divider_v {
+    margin: 0 22px;
+  }
+
+  .ul {
+    font-size: 19px;
+    line-height: 24px;
+  }
 }
