@@ -16,7 +16,7 @@ export default function Page() {
             <button className={`${styles.icon_moon} w-[22px] h-[22px] bg-no-repeat bg-center bg-contain cursor-pointer ml-2 md:ml-5`}></button>
           </div>
         </div>
-        <form className='flex justify-between items-center w-full rounded-2xl h-[48px] md:h-[64px] bg-search-bar w-full mt-6 md:mt-14'>
+        <form className='flex justify-between items-center w-full rounded-2xl h-[48px] md:h-[64px] bg-search-bar w-full mt-6 md:mt-14 cursor-pointer'>
           <input  type="text" placeholder='keyboard' className='focus:outline-none ml-6 font-bold placeholder:text-base placeholder:text-dark-heading md:placeholder:text-xl'/>
           <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6`}></div>
         </form>
@@ -25,7 +25,7 @@ export default function Page() {
             <div className='font-bold text-[32px] md:text-[64px]'>keyboard</div>
             <div className='text-light-purple text-lg md:text-2xl'>pronunciation</div>
           </div>
-          <div className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain`}></div>
+          <div className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`}></div>
         </div>
         <div className='flex flex-col text-left w-full mt-6 md:mt-8'>
           <div className='flex flex-row justify-between items-center'>
@@ -40,7 +40,7 @@ export default function Page() {
           </ul>
           <div className='flex items-center mt-3 md:mt-12 md:text-[20px]'>
             <div className='text-light-heading mr-6'>Synonyms</div>
-            <div className='font-bold text-light-purple'>electronic keyboard</div>
+            <div className='font-bold text-light-purple cursor-pointer'>electronic keyboard</div>
           </div>
         </div>
         <div className='flex flex-col text-left w-full mt-7 md:mt-9'>
