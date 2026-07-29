@@ -16,9 +16,10 @@ export default function Page() {
             <button className={`${styles.icon_moon} w-[22px] h-[22px] bg-no-repeat bg-center bg-contain cursor-pointer ml-2 md:ml-5`}></button>
           </div>
         </div>
-        <form className='flex justify-between items-center w-full rounded-2xl h-[48px] md:h-[64px] bg-search-bar w-full mt-6 md:mt-14 cursor-pointer'>
-          <input  type="text" placeholder='keyboard' className='focus:outline-none ml-6 font-bold placeholder:text-base placeholder:text-dark-heading md:placeholder:text-xl'/>
-          <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6`}></div>
+        <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative'>
+          <label htmlFor="word"></label>
+          <input  type="text" id='word' placeholder='keyboard' className='pl-6 h-full w-full bg-search-bar outline-none focus:border-1 focus:border-light-purple rounded-2xl font-bold placeholder:text-base placeholder:text-dark-heading md:placeholder:text-xl cursor-pointer caret-light-purple'/>
+          <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6 absolute top-6 bottom-[0] right-[0] cursor-pointer`}></div>
         </form>
         <div className='flex flex-row justify-between items-center w-full mt-5 md:mt-10'>
           <div className='flex flex-col text-left'>
