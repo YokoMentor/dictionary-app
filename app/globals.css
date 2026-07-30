@@ -11,6 +11,7 @@
   --color-light-heading: hsl(0, 0%, 46%);
   --color-light-purple: hsl(274, 82%, 60%);
   --color-divider: hsl(0, 0%, 91%);
+  --color-placeholder: hsl(0, 0%, 80%);
 }
 
 @media (prefers-color-scheme: dark) {
