@@ -49,6 +49,10 @@
   transition: all 0.3s;
 }
 
+input[type="checkbox"]:checked+.switch::after {
+  transform: translateX(18px);
+}
+
 .icon_moon {
   background-image: url('../public/icon-moon.svg');
 }
