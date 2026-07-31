@@ -41,7 +41,7 @@ export default function Page() {
           </ul>
           <div className='flex items-center mt-3 md:mt-12 md:text-[20px]'>
             <div className='text-light-heading mr-6'>Synonyms</div>
-            <div className='font-bold text-light-purple cursor-pointer'>electronic keyboard</div>
+            <div className='font-bold text-light-purple cursor-pointer hover:underline'>electronic keyboard</div>
           </div>
         </div>
         <div className='flex flex-col text-left w-full mt-7 md:mt-9'>
