@@ -18,8 +18,8 @@ export default function Page() {
         </div>
         <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative'>
           <label htmlFor="word"></label>
-          <input  type="text" id='word' placeholder='Search for any word...' className='pl-6 h-full w-full bg-search-bar outline-none border-1 border-search-bar hover:border-1 focus:border-1 hover:border-light-purple focus:border-light-purple rounded-2xl font-bold placeholder:text-base placeholder:text-placeholder md:placeholder:text-xl cursor-pointer caret-light-purple'/>
-          <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6 absolute top-6 bottom-[0] right-[0] cursor-pointer`}></div>
+          <input  type="text" id='word' placeholder='Search for any word...' className='pl-6 mb-1 h-full w-full bg-search-bar outline-none border-1 hover:border-1 focus:border-1 border-search-bar hover:border-light-purple focus:border-light-purple rounded-2xl font-bold placeholder:text-base placeholder:text-placeholder md:placeholder:text-xl text-[16px] md:text-[20px] cursor-pointer caret-light-purple'/>
+          <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6 absolute top-3 md:top-6 bottom-[0] right-[0] cursor-pointer`}></div>
         </form>
         <div className='flex flex-row justify-between items-center w-full mt-5 md:mt-10'>
           <div className='flex flex-col text-left'>

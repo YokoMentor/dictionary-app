@@ -91,6 +91,10 @@ input[type="checkbox"]:checked+.switch::after {
     margin: 0 24px;
   }
 
+  .divider_h {
+    width: 656px;
+  }
+
   .switch::after {
     left: 4px;
   }
