@@ -65,6 +65,34 @@ input[type="checkbox"]:checked+.switch::after {
   background-image: url('../public/icon-play.svg');
 }
 
+.play {
+  width: 76px;
+  height: 76px;
+  padding-top: 28px;
+  border-radius: 50%;
+  background-color: rgba(164, 69, 237, 0.25);
+}
+
+.play:hover {
+  background-color: #A445ED;
+}
+
+.play::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 21px solid #A445ED;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  margin: 0 auto;
+  /* Centers the triangle */
+}
+
+.play:hover::after {
+  border-left: 21px solid #FFFFFF;
+}
+
 .ul {
   list-style-type: none;
   padding: 0;

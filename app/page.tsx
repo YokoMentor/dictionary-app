@@ -26,7 +26,7 @@ export default function Page() {
             <div className='font-bold text-[32px] md:text-[64px]'>keyboard</div>
             <div className='text-light-purple text-lg md:text-2xl'>pronunciation</div>
           </div>
-          <div className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`}></div>
+          <div className={`${styles.play} cursor-pointer`}></div>
         </div>
         <div className='flex flex-col text-left w-full mt-6 md:mt-8'>
           <div className='flex flex-row justify-between items-center'>
