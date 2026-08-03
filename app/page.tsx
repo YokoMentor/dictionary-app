@@ -4,7 +4,7 @@ import styles from './page.module.css';
 
 export default function Page() {
   const borderStyleRegular = 'pl-6 mb-1 h-full w-full bg-search-bar outline-none border-1 hover:border-1 focus:border-1 border-search-bar hover:border-light-purple focus:border-light-purple rounded-2xl font-bold placeholder:text-base placeholder:text-placeholder md:placeholder:text-xl text-[16px] md:text-[20px] cursor-pointer caret-light-purple'
-  const borderStyleError = 'pl-6 mb-1 h-full w-full bg-search-bar outline-none border-1 hover:border-1 focus:border-1 border-search-bar hover:border-light-purple focus:border-light-purple rounded-2xl font-bold placeholder:text-base placeholder:text-placeholder md:placeholder:text-xl text-[16px] md:text-[20px] cursor-pointer caret-error'
+  const borderStyleError = 'pl-6 mb-1 h-full w-full bg-search-bar outline-none border-1 hover:border-1 focus:border-1 border-error hover:border-light-purple focus:border-error rounded-2xl font-bold placeholder:text-base placeholder:text-placeholder md:placeholder:text-xl text-[16px] md:text-[20px] cursor-pointer caret-light-purple'
   
   const [word, setWord] = useState('');
   const [wordError, setWordError] = useState(false);
@@ -52,17 +52,16 @@ export default function Page() {
             <button className={`${styles.icon_moon} w-[22px] h-[22px] bg-no-repeat bg-center bg-contain ml-2 md:ml-5`}></button>
           </div>
         </div>
-        <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative' onSubmit={handleShortenLinks}>
-          <label htmlFor="word"></label>
-          <input  type="text" id='word' placeholder='Search for any word...' 
-          className={`${wordError ? borderStyleError : borderStyleRegular}`}
-          onChange={handleWordChange}/>
-          {wordError && 
-          <div className='md:absolute flex items-center text-error-red text-[12px] md:text-[16px] mt-1 italic mr-44 md:mr-0'>
-            <p>Please add a link</p>
-          </div>}
-          <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6 absolute top-3 md:top-6 bottom-[0] right-[0] cursor-pointer`}></div>
-        </form>
+        <div className='flex flex-col w-full text-left'>
+          <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative' onSubmit={handleShortenLinks}>
+            <label htmlFor="word"></label>
+            <input  type="text" id='word' placeholder='Search for any word...' 
+            className={`${wordError ? borderStyleError : borderStyleRegular}`}
+            onChange={handleWordChange}/>
+            <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6 absolute top-3 md:top-6 bottom-[0] right-[0] cursor-pointer`}></div>
+          </form>
+          {wordError && <div className='text-error justify-start'>Whoops, can&rsquo;t be empty…</div>}
+        </div>
         {isVisible &&
         <div className='flex flex-col justify-center items-center text-center'>
           <div className='flex flex-row justify-between items-center w-full mt-5 md:mt-10'>
