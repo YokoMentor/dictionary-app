@@ -13,7 +13,7 @@ export default function Page() {
               <input type="checkbox" id="toggle-switch" hidden/>
               <label htmlFor="toggle-switch" className={`${styles.switch}`}></label>
             </div>
-            <button className={`${styles.icon_moon} w-[22px] h-[22px] bg-no-repeat bg-center bg-contain cursor-pointer ml-2 md:ml-5`}></button>
+            <button className={`${styles.icon_moon} w-[22px] h-[22px] bg-no-repeat bg-center bg-contain ml-2 md:ml-5`}></button>
           </div>
         </div>
         <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative'>
