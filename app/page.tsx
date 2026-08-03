@@ -38,9 +38,9 @@ export default function Page() {
   }
 
   return (
-    <div className='flex flex-col min-h-screen justify-center items-center'>
+    <div className='flex flex-col justify-center items-center'>
       <div className='flex flex-col justify-center items-center text-center w-[327px] md:w-[736px]'>
-        <div className='flex justify-between items-center text-center w-full mt-2 md:mt-14'>
+        <div className='flex justify-between items-center text-center w-full mt-6 md:mt-14'>
           <div className={`${styles.logo} w-[30px] h-[34px] md:w-[34px] md:h-[38px] bg-no-repeat bg-center bg-contain`}></div>
           <div className='flex flex-row items-center justify-center'>
             <button className={`${styles.icon_arrow} w-[98px] h-[24px] bg-no-repeat bg-right text-[14px] md:text-[18px] font-bold pl-1 md:pr-1`}>Serif</button>
