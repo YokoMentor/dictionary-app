@@ -12,6 +12,7 @@
   --color-light-purple: hsl(274, 82%, 60%);
   --color-divider: hsl(0, 0%, 91%);
   --color-placeholder: hsl(0, 0%, 80%);
+  --color-error: hsl(0, 100%, 66%);
 }
 
 @media (prefers-color-scheme: dark) {
