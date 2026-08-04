@@ -10,11 +10,16 @@
   background-image: url('../public/icon-new-window.svg');
 }
 
-.divider_v {
-  width: 1px;
-  height: 32px;
-  background-color: hsl(0, 0%, 91%);
-  margin: 0 15px;
+.icon_moon {
+  background-image: url('../public/icon-moon.svg');
+}
+
+.icon_search {
+  background-image: url('../public/icon-search.svg');
+}
+
+.icon_play {
+  background-image: url('../public/icon-play.svg');
 }
 
 .switch {
@@ -45,18 +50,6 @@
 
 input[type="checkbox"]:checked+.switch::after {
   transform: translateX(18px);
-}
-
-.icon_moon {
-  background-image: url('../public/icon-moon.svg');
-}
-
-.icon_search {
-  background-image: url('../public/icon-search.svg');
-}
-
-.icon_play {
-  background-image: url('../public/icon-play.svg');
 }
 
 .play {

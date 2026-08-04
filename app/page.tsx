@@ -63,7 +63,7 @@ export default function Page() {
             <div className={`${styles.logo} w-[30px] h-[34px] md:w-[34px] md:h-[38px] bg-no-repeat bg-center bg-contain`}></div>
             <div className='flex flex-row items-center justify-center'>
               <button className={`${styles.icon_arrow} ${lightTheme ? darkTxtStyle : lightTxtStyle} w-[98px] h-[24px] bg-no-repeat bg-right text-[14px] md:text-[18px] font-bold pl-1 md:pr-1`}>Serif</button>
-              <div className={`${styles.divider_v}`}></div>
+              <div className='h-[32px] w-[1px] bg-light-divider mx-4 md:mx-6'></div>
               <div className='flex flex-row items-center justify-center'>
                 <input type="checkbox" id="theme-toggle" hidden/>
                 <label htmlFor="theme-toggle" className={`${styles.switch}`} onClick={handleThemeSwitcher}></label>
