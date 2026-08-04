@@ -6,6 +6,7 @@
 }
 
 @theme inline {
+  --color-bg-dark: hsl(0, 0%, 0%);
   --color-search-bar: hsl(0, 0%, 96%);
   --color-dark-heading: hsl(0, 0%, 18%);
   --color-light-heading: hsl(0, 0%, 46%);
