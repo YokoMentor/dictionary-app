@@ -73,7 +73,6 @@ input[type="checkbox"]:checked+.switch::after {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   margin: 0 auto;
-  /* Centers the triangle */
 }
 
 .play:hover::after {
@@ -102,10 +101,6 @@ input[type="checkbox"]:checked+.switch::after {
 }
 
 @media (min-width: 768px) {
-  .divider_v {
-    margin: 0 24px;
-  }
-
   .switch::after {
     left: 4px;
   }
