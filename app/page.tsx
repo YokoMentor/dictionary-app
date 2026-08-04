@@ -62,6 +62,11 @@ export default function Page() {
           </form>
           {wordError && <div className='text-error justify-start'>Whoops, can&rsquo;t be empty…</div>}
         </div>
+        <div className='flex flex-col justify-center items-center w-full mt-30'>
+          <div className='text-[53px] mb-8'>😕</div>
+          <h1 className='text-[21px] font-bold mb-5'>No Definitions Found</h1>
+          <p className='text-[19px] leading-6'>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
+        </div>
         {isVisible &&
         <div className='flex flex-col justify-center items-center text-center'>
           <div className='flex flex-row justify-between items-center w-full mt-5 md:mt-10'>
