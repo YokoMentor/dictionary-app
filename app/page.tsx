@@ -5,6 +5,8 @@ import styles from './page.module.css';
 export default function Page() {
   const darkBgStyle = 'bg-dark';
   const lightBgStyle = 'bg-light';
+  const darkMoonStyle = 'stroke-light-purple';
+  const lightMoonStyle = 'stroke-light-heading';
   const darkTxtStyle = 'text-dark';
   const lightTxtStyle = 'text-light';
   const darkDividerStyle = 'bg-dark-divider';
@@ -64,11 +66,11 @@ export default function Page() {
             <div className='flex flex-row items-center justify-center'>
               <button className={`${styles.icon_arrow} ${lightTheme ? darkTxtStyle : lightTxtStyle} w-[98px] h-[24px] bg-no-repeat bg-right text-[14px] md:text-[18px] font-bold pl-1 md:pr-1`}>Serif</button>
               <div className='h-[32px] w-[1px] bg-light-divider mx-4 md:mx-6'></div>
-              <div className='flex flex-row items-center justify-center'>
+              <div className='flex flex-row items-center justify-center mr-2 md:mr-5'>
                 <input type="checkbox" id="theme-toggle" hidden/>
                 <label htmlFor="theme-toggle" className={`${styles.switch}`} onClick={handleThemeSwitcher}></label>
               </div>
-              <button className={`${styles.icon_moon} w-[22px] h-[22px] bg-no-repeat bg-center bg-contain ml-2 md:ml-5`}></button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path fill="none" className={`${lightTheme ? lightMoonStyle : darkMoonStyle}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg>
             </div>
           </div>
           <div className='flex flex-col w-full text-left'>
@@ -95,7 +97,7 @@ export default function Page() {
                 <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-[32px] md:text-[64px]`}>keyboard</div>
                 <div className='text-light-purple text-lg md:text-2xl'>pronunciation</div>
               </div>
-              <button className={`${styles.play} cursor-pointer`}></button>
+              <button className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`}></button>
             </div>
             <div className='flex flex-col text-left w-full mt-6 md:mt-8'>
               <div className='flex flex-row justify-between items-center'>

@@ -10,10 +10,6 @@
   background-image: url('../public/icon-new-window.svg');
 }
 
-.icon_moon {
-  background-image: url('../public/icon-moon.svg');
-}
-
 .icon_search {
   background-image: url('../public/icon-search.svg');
 }
@@ -32,7 +28,7 @@
 }
 
 .switch:hover {
-  background-color: #A445ED;
+  background-color: hsl(274, 82%, 60%);
   cursor: pointer;
 }
 
@@ -43,40 +39,13 @@
   left: 4px;
   width: 14px;
   height: 14px;
-  background-color: white;
+  background-color: hsl(0, 0%, 100%);
   border-radius: 50%;
   transition: all 0.3s;
 }
 
 input[type="checkbox"]:checked+.switch::after {
   transform: translateX(18px);
-}
-
-.play {
-  width: 76px;
-  height: 76px;
-  padding-top: 28px;
-  border-radius: 50%;
-  background-color: rgba(164, 69, 237, 0.25);
-}
-
-.play:hover {
-  background-color: #A445ED;
-}
-
-.play::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: 21px solid #A445ED;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  margin: 0 auto;
-}
-
-.play:hover::after {
-  border-left: 21px solid #FFFFFF;
 }
 
 .ul {
