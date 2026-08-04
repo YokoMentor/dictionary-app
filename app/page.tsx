@@ -11,6 +11,8 @@ export default function Page() {
   const lightTxtStyle = 'text-light';
   const darkDividerStyle = 'bg-dark-divider';
   const lightDividerStyle = 'bg-light-divider';
+  const darkSearchStyle = 'bg-dark-search border-dark-search text-light placeholder:text-dark-placeholder';
+  const lightSearchStyle = 'bg-light-search border-light-search text-dark-heading placeholder:text-light-placeholder';
   const borderStyleRegular = 'border-search-bar focus:border-light-purple'
   const borderStyleError = 'border-error focus:border-error'
   
@@ -77,8 +79,8 @@ export default function Page() {
             <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative' onSubmit={handleShortenLinks}>
               <label htmlFor="word"></label>
               <input  type="text" id='word' placeholder='Search for any word...' 
-              className={`${wordError ? borderStyleError : borderStyleRegular} 
-              pl-6 mb-1 h-full w-full bg-search-bar outline-none border-1 hover:border-1 focus:border-1 hover:border-light-purple rounded-2xl font-bold placeholder:text-base placeholder:text-placeholder md:placeholder:text-xl text-[16px] md:text-[20px] cursor-pointer caret-light-purple`}
+              className={`${wordError ? borderStyleError : borderStyleRegular} ${lightTheme ? lightSearchStyle : darkSearchStyle}
+              pl-6 mb-1 h-full w-full outline-none border-1 hover:border-1 focus:border-1 hover:border-light-purple rounded-2xl font-bold md:placeholder:text-xl text-[16px] md:text-[20px] cursor-pointer caret-light-purple`}
               onChange={handleWordChange}/>
               <div className={`${styles.icon_search} w-[18px] h-[18px] bg-no-repeat bg-center bg-contain mr-6 absolute top-3 md:top-6 bottom-[0] right-[0] cursor-pointer`}></div>
             </form>
