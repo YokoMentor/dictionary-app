@@ -17,12 +17,6 @@
   margin: 0 15px;
 }
 
-.divider_h {
-  width: 262px;
-  height: 1px;
-  background-color: hsl(0, 0%, 91%);
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -117,10 +111,6 @@ input[type="checkbox"]:checked+.switch::after {
 @media (min-width: 768px) {
   .divider_v {
     margin: 0 24px;
-  }
-
-  .divider_h {
-    width: 656px;
   }
 
   .switch::after {

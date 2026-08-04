@@ -6,12 +6,14 @@
 }
 
 @theme inline {
-  --color-bg-dark: hsl(0, 0%, 0%);
+  --color-dark: hsl(0, 0%, 0%);
+  --color-light: hsl(0, 0%, 100%);
   --color-search-bar: hsl(0, 0%, 96%);
   --color-dark-heading: hsl(0, 0%, 18%);
   --color-light-heading: hsl(0, 0%, 46%);
+  --color-dark-divider: hsl(0, 0%, 46%);
+  --color-light-divider: hsl(0, 0%, 91%);
   --color-light-purple: hsl(274, 82%, 60%);
-  --color-divider: hsl(0, 0%, 91%);
   --color-placeholder: hsl(0, 0%, 80%);
   --color-error: hsl(0, 100%, 66%);
 }
