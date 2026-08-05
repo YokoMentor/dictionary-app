@@ -53,7 +53,7 @@ export default function Page() {
     return true;
   }
 
-  function handleShortenLinks(event:React.FormEvent<HTMLFormElement>) {
+  function handleSearch(event:React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setWordError(false);
     validateWord(word);
@@ -75,8 +75,15 @@ export default function Page() {
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path fill="none" className={`${lightTheme ? lightMoonStyle : darkMoonStyle}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg>
             </div>
           </div>
+          <div className='flex justify-center items-center relative z-2'>
+            <div className={`${styles.shadow} flex flex-col justify-center items-start absolute top-0 w-[122px] h-[152px] md:w-[182px] md:h-[152px] bg-light rounded-2xl ml-4 md:ml-72 mt-2 md:mt-3 pl-4 md:pl-6 font-bold text-[15px] md:text-[17px]`}>
+              <div>Sans Serif</div>
+              <div className='my-4'>Serif</div>
+              <div>Mono</div>
+            </div>
+          </div>
           <div className='flex flex-col w-full text-left'>
-            <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative' onSubmit={handleShortenLinks}>
+            <form className='flex justify-between items-center w-full h-[48px] md:h-[64px] mt-6 md:mt-14 relative z-1' onSubmit={handleSearch}>
               <label htmlFor="word"></label>
               <input  type="text" id='word' placeholder='Search for any word...' 
               className={`${wordError ? borderStyleError : borderStyleRegular} ${lightTheme ? lightSearchStyle : darkSearchStyle}
