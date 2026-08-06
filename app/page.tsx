@@ -83,7 +83,10 @@ export default function Page() {
           <div className='flex justify-between items-center text-center w-full mt-6 md:mt-14'>
             <div className={`${styles.logo} w-[30px] h-[34px] md:w-[34px] md:h-[38px] bg-no-repeat bg-center bg-contain`}></div>
             <div className='flex flex-row items-center justify-center'>
-              <button className={`${styles.icon_arrow} ${lightTheme ? darkTxtStyle : lightTxtStyle} w-[98px] h-[24px] bg-no-repeat bg-right text-[14px] md:text-[18px] font-bold pl-1 md:pr-1 cursor-pointer`} onClick={handleMenuClick}>{font}</button>
+              <div className='flex flex-row items-center justify-between cursor-pointer w-[100px] md:w-[120px]' onClick={handleMenuClick}>
+                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} w-[70px] md:w-[92px] text-[14px] md:text-[18px] font-bold text-right`}>{font}</div>
+                <div className={`${styles.icon_arrow} w-[14px] h-[8px] bg-no-repeat bg-center`}></div>
+              </div>
               <div className='h-[32px] w-[1px] bg-light-divider mx-4 md:mx-6'></div>
               <div className='flex flex-row items-center justify-center mr-2 md:mr-5'>
                 <input type="checkbox" id="theme-toggle" hidden/>
