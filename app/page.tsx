@@ -18,7 +18,8 @@ export default function Page() {
   const borderStyleRegular = 'border-search-bar focus:border-light-purple'
   const borderStyleError = 'border-error focus:border-error'
   
-  const [font, setFont] = useState('Serif');
+  const [fontStyleName, setFontStyleName] = useState('Serif');
+  const [fontStyle, setFontStyle] = useState('font-sans');
   const [lightTheme, setLightTheme] = useState(true);
   const [themeSwitch, setThemeSwitch] = useState(false);
   const [word, setWord] = useState('');
@@ -28,8 +29,9 @@ export default function Page() {
   const [dropDownMenuIsVisible, setDropDownMenuIsVisible] = useState(false);
 
 
-  function handleFontChange(selectedFont: string) {
-    setFont(selectedFont);
+  function handleFontChange(selectedFontStyleName: string, selectedFontStyle: string) {
+    setFontStyleName(selectedFontStyleName);
+    setFontStyle(selectedFontStyle);
   }
 
   function handleMenuClick() {
@@ -77,14 +79,14 @@ export default function Page() {
   }
 
   return (
-    <div className={`${lightTheme ? lightBgStyle : darkBgStyle} min-h-screen flex flex-col items-center`}>
+    <div className={`${lightTheme ? lightBgStyle : darkBgStyle} ${fontStyle} min-h-screen flex flex-col items-center`}>
       <div className='flex flex-col justify-center items-center'>
         <div className='flex flex-col justify-center items-center text-center w-[327px] md:w-[736px]'>
           <div className='flex justify-between items-center text-center w-full mt-6 md:mt-14'>
             <div className={`${styles.logo} w-[30px] h-[34px] md:w-[34px] md:h-[38px] bg-no-repeat bg-center bg-contain`}></div>
             <div className='flex flex-row items-center justify-center'>
               <div className='flex flex-row items-center justify-between cursor-pointer w-[100px] md:w-[120px]' onClick={handleMenuClick}>
-                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} w-[70px] md:w-[92px] text-[14px] md:text-[18px] font-bold text-right`}>{font}</div>
+                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} w-[70px] md:w-[92px] text-[14px] md:text-[18px] font-bold text-right`}>{fontStyleName}</div>
                 <div className={`${styles.icon_arrow} w-[14px] h-[8px] bg-no-repeat bg-center`}></div>
               </div>
               <div className='h-[32px] w-[1px] bg-light-divider mx-4 md:mx-6'></div>
@@ -97,9 +99,9 @@ export default function Page() {
           </div>
           {dropDownMenuIsVisible && <div className='flex justify-center items-center relative z-2'>
             <div className={`${lightTheme ? styles.menu_shadow_light : styles.menu_shadow_dark} ${lightTheme ? lightMenuStyle : darkMenuStyle} flex flex-col justify-center items-start absolute top-0 w-[122px] h-[152px] md:w-[182px] md:h-[152px] rounded-2xl ml-4 md:ml-72 mt-2 md:mt-3 pl-4 md:pl-6 font-bold text-[15px] md:text-[17px]`}>
-              <div className='cursor-pointer hover:text-light-purple' onClick={() => handleFontChange('Sans Serif')}>Sans Serif</div>
-              <div className='cursor-pointer hover:text-light-purple my-4' onClick={() => handleFontChange('Serif')}>Serif</div>
-              <div className='cursor-pointer hover:text-light-purple' onClick={() => handleFontChange('Mono')}>Mono</div>
+              <div className='cursor-pointer hover:text-light-purple font-sans' onClick={() => handleFontChange('Sans Serif', 'font-sans')}>Sans Serif</div>
+              <div className='cursor-pointer hover:text-light-purple my-4 font-serif' onClick={() => handleFontChange('Serif', 'font-serif')}>Serif</div>
+              <div className='cursor-pointer hover:text-light-purple font-mono' onClick={() => handleFontChange('Mono', 'font-mono')}>Mono</div>
             </div>
           </div>}
           <div className='flex flex-col w-full text-left'>
