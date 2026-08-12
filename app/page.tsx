@@ -176,7 +176,7 @@ export default function Page() {
             <div className='flex flex-col md:flex-row text-left text-[14px] mt-8 mb-12 w-full underline'>
               <div className='text-light-heading mb-1 md:mr-5'>Source</div>
               <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} flex`}>
-                <div className='mr-2'>{dataResponse?.source}</div>
+                <a className='mr-2' href={dataResponse?.source} target='_blank' rel='noopener noreferrer'>{dataResponse?.source}</a>
                 <div className={`${styles.icon_new_window} w-[14px] h-[14px]`}></div>
               </div>
             </div>
