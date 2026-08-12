@@ -1,6 +1,7 @@
 'use client'
 import { useState, ChangeEvent } from 'react'
-import styles from './page.module.css';
+import styles from './page.module.css'
+import { DataResponse, fetchData } from './actions'
 
 export default function Page() {
   const darkBgStyle = 'bg-dark';
@@ -27,6 +28,7 @@ export default function Page() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMsgVisible, setIsMsgVisible] = useState(false);
   const [dropDownMenuIsVisible, setDropDownMenuIsVisible] = useState(false);
+  const [dataResponse, setDataResponse] = useState<DataResponse>();
 
 
   function handleFontChange(selectedFontStyleName: string, selectedFontStyle: string) {
@@ -74,8 +76,15 @@ export default function Page() {
 
   function handleSearch(event:React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setWordError(false);
-    validateWord(word);
+    const init = async() => {
+      setWordError(false);
+      validateWord(word);
+      if (isValidWord(word)) {
+        const data = await fetchData(word);
+        setDataResponse(data);
+      }
+    }
+    init();
   }
 
   return (
@@ -125,43 +134,49 @@ export default function Page() {
           <div className='flex flex-col justify-center items-center text-center w-[327px] md:w-[736px]'>
             <div className='flex flex-row justify-between items-center w-full mt-5 md:mt-10'>
               <div className='flex flex-col text-left'>
-                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-[32px] md:text-[64px]`}>keyboard</div>
-                <div className='text-light-purple text-lg md:text-2xl'>pronunciation</div>
+                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-[32px] md:text-[64px]`}>{dataResponse?.word}</div>
+                <div className='text-light-purple text-lg md:text-2xl'>{dataResponse?.pronunciation}</div>
               </div>
               <button className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`}></button>
             </div>
             <div className='flex flex-col text-left w-full mt-6 md:mt-8'>
               <div className='flex flex-row justify-between items-center'>
-                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-lg md:text-2xl italic mr-4`}>noun</div>
+                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-lg md:text-2xl italic mr-4`}>{dataResponse?.noun.partOfSpeech}</div>
                 <div className={`${lightTheme ? lightDividerStyle : darkDividerStyle} w-[262px] md:w-[656px] h-[1px] mx-4`}></div>
               </div>
               <div className='text-light-heading mt-6 md:mt-10 md:text-xl'>Meaning</div>
               <ul className={`${styles.ul} ${lightTheme ? darkTxtStyle : lightTxtStyle}`}>
-                <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
-                <li>A component of many instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.</li>
-                <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.</li>
+                {dataResponse?.noun.meaning.map((value, i) => (
+                  <li key={i}>{value}</li>
+                ))}
               </ul>
               <div className='flex items-center mt-3 md:mt-12 md:text-[20px]'>
                 <div className='text-light-heading mr-6'>Synonyms</div>
-                <div className='font-bold text-light-purple cursor-pointer hover:underline'>electronic keyboard</div>
+                <div className='font-bold text-light-purple list-none cursor-pointer hover:underline'>
+                  {dataResponse?.noun.synonyms.map((value, i) => (
+                    <li key={i}>{value}</li>
+                  ))}
+                </div>
               </div>
             </div>
             <div className='flex flex-col text-left w-full mt-7 md:mt-9'>
               <div className='flex flex-row justify-between items-center'>
-                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-lg md:text-2xl italic mr-4`}>verb</div>
+                <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-lg md:text-2xl italic mr-4`}>{dataResponse?.verb.partOfSpeech}</div>
                 <div className={`${lightTheme ? lightDividerStyle : darkDividerStyle} w-[262px] md:w-[656px] h-[1px] mx-4`}></div>
               </div>
               <div className='text-light-heading mt-6 md:mt-9 md:text-xl'>Meaning</div>
               <ul className={`${styles.ul} ${lightTheme ? darkTxtStyle : lightTxtStyle}`}>
-                <li>To type on a computer keyboard.</li>
+                {dataResponse?.verb.meaning.map((value, i) => (
+                  <li key={i}>{value}</li>
+                ))}
               </ul>
-              <div className='text-[15px] md:text-[18px] text-light-heading ml-6 mt-1 md:ml-12'>“Keyboarding is the part of this job I hate the most.”</div>
+              <div className='text-[15px] md:text-[18px] text-light-heading ml-6 mt-1 md:ml-12'>{dataResponse?.verb.use}</div>
               <div className={`${lightTheme ? lightDividerStyle : darkDividerStyle} w-full h-[1px] mt-8`}></div>
             </div>
-            <div className='flex flex-col md:flex-row text-left text-[14px] mt-8 mb-12 w-full'>
-              <div className='text-light-heading underline mb-1 md:mr-5'>Source</div>
+            <div className='flex flex-col md:flex-row text-left text-[14px] mt-8 mb-12 w-full underline'>
+              <div className='text-light-heading mb-1 md:mr-5'>Source</div>
               <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} flex`}>
-                <div className='mr-2'>https://en.wiktionary.org/wiki/keyboard</div>
+                <div className='mr-2'>{dataResponse?.source}</div>
                 <div className={`${styles.icon_new_window} w-[14px] h-[14px]`}></div>
               </div>
             </div>
