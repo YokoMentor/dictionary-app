@@ -1,5 +1,7 @@
 'use client'
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
+import Link from 'next/link'
 import styles from './page.module.css'
 import { DataResponse, fetchData } from './actions'
 
@@ -23,12 +25,14 @@ export default function Page() {
   const [fontStyle, setFontStyle] = useState('font-sans');
   const [lightTheme, setLightTheme] = useState(true);
   const [themeSwitch, setThemeSwitch] = useState(false);
-  const [word, setWord] = useState('');
+  const [word, setWord] = useState(useSearchParams().get("word"));
   const [wordError, setWordError] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isMsgVisible, setIsMsgVisible] = useState(false);
   const [dropDownMenuIsVisible, setDropDownMenuIsVisible] = useState(false);
   const [dataResponse, setDataResponse] = useState<DataResponse>();
+  const router = useRouter();
+  const paramsWord = useSearchParams();
 
 
   function handleFontChange(selectedFontStyleName: string, selectedFontStyle: string) {
@@ -76,15 +80,27 @@ export default function Page() {
 
   function handleSearch(event:React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const init = async() => {
+    router.replace('/?word=' + word);
+  }
+
+  useEffect(() => { //when page has been loaded
+    if(word === null) {
+    } else {
+      const init = async() => {
+        console.log('hello');
       setWordError(false);
-      validateWord(word);
-      if (isValidWord(word)) {
-        const data = await fetchData(word);
+      validateWord(word as string);
+      if (isValidWord(word as string)) {
+        const data = await fetchData(word as string);
         setDataResponse(data);
       }
     }
     init();
+    }
+  }, [word, paramsWord]);
+
+  function returnHome() {
+    window.location.href = '/';
   }
 
   return (
@@ -92,7 +108,7 @@ export default function Page() {
       <div className='flex flex-col justify-center items-center'>
         <div className='flex flex-col justify-center items-center text-center w-[327px] md:w-[736px]'>
           <div className='flex justify-between items-center text-center w-full mt-6 md:mt-14'>
-            <div className={`${styles.logo} w-[30px] h-[34px] md:w-[34px] md:h-[38px] bg-no-repeat bg-center bg-contain`}></div>
+            <div className={`${styles.logo} w-[30px] h-[34px] md:w-[34px] md:h-[38px] bg-no-repeat bg-center bg-contain`} onClick={returnHome}></div>
             <div className='flex flex-row items-center justify-center'>
               <div className='flex flex-row items-center justify-between cursor-pointer w-[100px] md:w-[120px]' onClick={handleMenuClick}>
                 <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} w-[70px] md:w-[92px] text-[14px] md:text-[18px] font-bold text-right`}>{fontStyleName}</div>
@@ -152,11 +168,11 @@ export default function Page() {
               </ul>
               <div className='flex items-center mt-3 md:mt-12 md:text-[20px]'>
                 <div className='text-light-heading mr-6'>Synonyms</div>
-                <div className='font-bold text-light-purple list-none cursor-pointer hover:underline'>
+                <ul className='font-bold text-light-purple list-none cursor-pointer hover:underline'>
                   {dataResponse?.noun.synonyms.map((value, i) => (
-                    <li key={i}>{value}</li>
+                    <li key={i}><a href={`/?word=${value}`}>{value}</a></li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
             <div className='flex flex-col text-left w-full mt-7 md:mt-9'>
