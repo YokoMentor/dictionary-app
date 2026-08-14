@@ -170,7 +170,7 @@ export default function Page() {
                 <div className='text-light-heading mr-6'>Synonyms</div>
                 <ul className='font-bold text-light-purple list-none cursor-pointer hover:underline'>
                   {dataResponse?.noun.synonyms.map((value, i) => (
-                    <li key={i}><a href={`/?word=${value}`}>{value}</a></li>
+                    <li key={i}><a href={`/?word=${value}`} target='_blank' rel='noopener noreferrer'>{value}</a></li>
                   ))}
                 </ul>
               </div>
