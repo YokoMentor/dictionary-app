@@ -1,7 +1,6 @@
 'use client'
-import { useState, ChangeEvent, useEffect } from 'react'
+import { useState, ChangeEvent, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import Link from 'next/link'
 import styles from './page.module.css'
 import { DataResponse, fetchData } from './actions'
 
@@ -33,8 +32,14 @@ export default function Page() {
   const [dataResponse, setDataResponse] = useState<DataResponse>();
   const router = useRouter();
   const paramsWord = useSearchParams();
+  const audioUrl = '//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3';
+  const audioRef = useRef(new Audio(audioUrl));
 
 
+  function returnHome() {
+    window.location.href = '/';
+  }
+  
   function handleFontChange(selectedFontStyleName: string, selectedFontStyle: string) {
     setFontStyleName(selectedFontStyleName);
     setFontStyle(selectedFontStyle);
@@ -99,9 +104,9 @@ export default function Page() {
     }
   }, [word, paramsWord]);
 
-  function returnHome() {
-    window.location.href = '/';
-  }
+  function playAudio(){
+    audioRef.current.play();
+  };
 
   return (
     <div className={`${lightTheme ? lightBgStyle : darkBgStyle} ${fontStyle} min-h-screen flex flex-col items-center`}>
@@ -153,7 +158,9 @@ export default function Page() {
                 <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} font-bold text-[32px] md:text-[64px]`}>{dataResponse?.word}</div>
                 <div className='text-light-purple text-lg md:text-2xl'>{dataResponse?.pronunciation}</div>
               </div>
-              <button className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`}></button>
+              <div>
+                <button className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`} onClick={playAudio}></button>
+              </div>
             </div>
             <div className='flex flex-col text-left w-full mt-6 md:mt-8'>
               <div className='flex flex-row justify-between items-center'>
