@@ -25,6 +25,7 @@ export default function Page() {
   const [lightTheme, setLightTheme] = useState(true);
   const [themeSwitch, setThemeSwitch] = useState(false);
   const [word, setWord] = useState(useSearchParams().get("word"));
+  const [tempWord, setTempWord] = useState('');
   const [wordError, setWordError] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isMsgVisible, setIsMsgVisible] = useState(false);
@@ -64,7 +65,7 @@ export default function Page() {
   
   function handleWordChange(event: ChangeEvent<HTMLInputElement>){
     event.preventDefault();
-    setWord(event.target.value);
+    setTempWord(event.target.value);
     setIsVisible(false);
   }
 
@@ -85,7 +86,8 @@ export default function Page() {
 
   function handleSearch(event:React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    router.replace('/?word=' + word);
+    setWord(tempWord);
+    router.replace('/?word=' + tempWord);
   }
 
   useEffect(() => { //when page has been loaded
@@ -173,11 +175,11 @@ export default function Page() {
                   <li key={i}>{value}</li>
                 ))}
               </ul>
-              <div className='flex items-center mt-3 md:mt-12 md:text-[20px]'>
+              <div className='flex items-top mt-3 md:mt-12 md:text-[20px]'>
                 <div className='text-light-heading mr-6'>Synonyms</div>
-                <ul className='font-bold text-light-purple list-none cursor-pointer hover:underline'>
+                <ul className='font-bold text-light-purple list-none cursor-pointer'>
                   {dataResponse?.noun.synonyms.map((value, i) => (
-                    <li key={i}><a href={`/?word=${value}`} target='_blank' rel='noopener noreferrer'>{value}</a></li>
+                    <li className='hover:underline' key={i}><a href={`/?word=${value}`} target='_blank' rel='noopener noreferrer'>{value}</a></li>
                   ))}
                 </ul>
               </div>
@@ -193,7 +195,7 @@ export default function Page() {
                   <li key={i}>{value}</li>
                 ))}
               </ul>
-              <div className='text-[15px] md:text-[18px] text-light-heading ml-6 mt-1 md:ml-12'>{dataResponse?.verb.use}</div>
+              <div className='text-[15px] md:text-[18px] text-light-heading ml-6 mt-1 md:ml-12'>“{dataResponse?.verb.use}”</div>
               <div className={`${lightTheme ? lightDividerStyle : darkDividerStyle} w-full h-[1px] mt-8`}></div>
             </div>
             <div className='flex flex-col md:flex-row text-left text-[14px] mt-8 mb-12 w-full underline'>
