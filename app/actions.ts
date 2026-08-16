@@ -3,7 +3,8 @@ export interface DataResponse {
   pronunciation: string;
   verb: DataDefinition,
   noun: DataDefinition,
-  source: 'https://en.wiktionary.org/wiki/keyboard';
+  source: string;
+  audioSource: string;
 };
 
 export interface DataDefinition {
@@ -36,7 +37,15 @@ export async function fetchData(word: string): Promise<DataResponse> {
         use: ''
       },
     source: firstResult.sourceUrls[0],
+    audioSource: ''
   };
+
+  for(let i = 0; i < firstResult.phonetics.length; i++) {
+    let data = firstResult.phonetics[i].audio;
+    if(data.includes('-uk') || data.includes('-us')) {
+      result.audioSource = firstResult.phonetics[i].audio;
+    }
+  }
 
   for(let i = 0; i < firstResult.meanings.length; i++) {
     if(firstResult.meanings[i].partOfSpeech === 'noun') {
@@ -63,11 +72,9 @@ export async function fetchData(word: string): Promise<DataResponse> {
       result.verb.synonyms = [];
 
       for(let k = 0; k < firstResult.meanings[i].definitions.length; k++) {
-        result.verb.use = firstResult.meanings[i].definitions[k].example;
+        result.verb.use = '“' + firstResult.meanings[i].definitions[k].example + '”';
       }
     } 
   }
    return result
 }
-
-  //for loop ja kysin kas part of speetch on verb v6i notFound. Kui on Vesper_Libre, siis t2idan result.verb osa

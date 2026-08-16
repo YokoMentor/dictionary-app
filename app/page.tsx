@@ -3,6 +3,7 @@ import { useState, ChangeEvent, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import styles from './page.module.css'
 import { DataResponse, fetchData } from './actions'
+import AudioPlayer from '../components/audioPlayer/AudioPlayer'
 
 export default function Page() {
   const darkBgStyle = 'bg-dark';
@@ -33,9 +34,7 @@ export default function Page() {
   const [dataResponse, setDataResponse] = useState<DataResponse>();
   const router = useRouter();
   const paramsWord = useSearchParams();
-  const audioUrl = '//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3';
-  const audioRef = useRef(new Audio(audioUrl));
-
+  const [audioSource, setAudioSource] = useState('//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3')
 
   function returnHome() {
     window.location.href = '/';
@@ -94,21 +93,17 @@ export default function Page() {
     if(word === null) {
     } else {
       const init = async() => {
-        console.log('hello');
       setWordError(false);
       validateWord(word as string);
       if (isValidWord(word as string)) {
         const data = await fetchData(word as string);
         setDataResponse(data);
+        //setAudioSource(data.audioSource);
       }
     }
     init();
     }
   }, [word, paramsWord]);
-
-  function playAudio(){
-    audioRef.current.play();
-  };
 
   return (
     <div className={`${lightTheme ? lightBgStyle : darkBgStyle} ${fontStyle} min-h-screen flex flex-col items-center`}>
@@ -161,7 +156,7 @@ export default function Page() {
                 <div className='text-light-purple text-lg md:text-2xl'>{dataResponse?.pronunciation}</div>
               </div>
               <div>
-                <button className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`} onClick={playAudio}></button>
+                <AudioPlayer audioSource = {audioSource} />
               </div>
             </div>
             <div className='flex flex-col text-left w-full mt-6 md:mt-8'>
@@ -195,7 +190,7 @@ export default function Page() {
                   <li key={i}>{value}</li>
                 ))}
               </ul>
-              <div className='text-[15px] md:text-[18px] text-light-heading ml-6 mt-1 md:ml-12'>“{dataResponse?.verb.use}”</div>
+              <div className='text-[15px] md:text-[18px] text-light-heading ml-6 mt-1 md:ml-12'>{dataResponse?.verb.use}</div>
               <div className={`${lightTheme ? lightDividerStyle : darkDividerStyle} w-full h-[1px] mt-8`}></div>
             </div>
             <div className='flex flex-col md:flex-row text-left text-[14px] mt-8 mb-12 w-full underline'>
