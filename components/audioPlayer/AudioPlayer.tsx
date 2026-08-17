@@ -14,7 +14,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSource }) => {
   }, [audioSource]);
 
   function playAudio() {
-    audioRef.current.play();
+     audioRef.current.play();
   };
 
   return <button className={`${styles.icon_play} w-[48px] h-[48px] md:w-[75px] md:h-[75px] bg-no-repeat bg-center bg-contain cursor-pointer`} onClick={playAudio}></button>

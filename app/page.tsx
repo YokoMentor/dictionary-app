@@ -34,7 +34,7 @@ export default function Page() {
   const [dataResponse, setDataResponse] = useState<DataResponse>();
   const router = useRouter();
   const paramsWord = useSearchParams();
-  const [audioSource, setAudioSource] = useState('//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3')
+  const [audioSource, setAudioSource] = useState('/audio/hello--_gb_1.mp3') //Used default value because API audio server is down
 
   function returnHome() {
     window.location.href = '/';
