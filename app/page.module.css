@@ -31,12 +31,10 @@
   display: inline-block;
   width: 40px;
   height: 20px;
-  background-color: hsl(0, 0%, 46%);
   border-radius: 25px;
 }
 
 .switch:hover {
-  background-color: hsl(274, 82%, 60%);
   cursor: pointer;
 }
 

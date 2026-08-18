@@ -10,6 +10,8 @@ export default function Page() {
   const lightBgStyle = 'bg-light';
   const darkMenuStyle = 'bg-dark-search text-light';
   const lightMenuStyle = 'bg-light text-dark-heading';
+  const darkToggleStyle = 'bg-light-purple';
+  const lightToggleStyle = 'bg-light-heading hover:bg-light-purple';
   const darkMoonStyle = 'stroke-light-purple';
   const lightMoonStyle = 'stroke-light-heading';
   const darkTxtStyle = 'text-dark';
@@ -123,7 +125,7 @@ export default function Page() {
               <div className='h-[32px] w-[1px] bg-light-divider mx-4 md:mx-6'></div>
               <div className='flex flex-row items-center justify-center mr-2 md:mr-5'>
                 <input type="checkbox" id="theme-toggle" hidden/>
-                <label htmlFor="theme-toggle" className={`${styles.switch}`} onClick={handleThemeSwitcher}></label>
+                <label htmlFor="theme-toggle" className={`${styles.switch} ${lightTheme ? lightToggleStyle : darkToggleStyle}`} onClick={handleThemeSwitcher}></label>
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path fill="none" className={`${lightTheme ? lightMoonStyle : darkMoonStyle}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg>
             </div>
