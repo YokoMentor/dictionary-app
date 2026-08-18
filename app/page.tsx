@@ -99,7 +99,9 @@ export default function Page() {
       validateWord(word as string);
       if (isValidWord(word as string)) {
         const data = await fetchData(word as string);
-        if(data.word === '') {
+        if(data.word !== '') {
+          setIsMsgVisible(false);
+        } else {
           setIsMsgVisible(true);
           setIsVisible(false);
         }
