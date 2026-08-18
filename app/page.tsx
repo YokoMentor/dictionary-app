@@ -95,23 +95,32 @@ export default function Page() {
     if(word === null) {
     } else {
       const init = async() => {
-      setWordError(false);
-      validateWord(word as string);
-      if (isValidWord(word as string)) {
-        const data = await fetchData(word as string);
-        if(data.word !== '') {
-          setIsMsgVisible(false);
-        } else {
-          setIsMsgVisible(true);
-          setIsVisible(false);
+        const defaultDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches 
+        if(defaultDarkMode){
+          setLightTheme(false);
+          setThemeSwitch(true);
         }
-        setDataResponse(data);
-        //setAudioSource(data.audioSource);
-      }
+        setWordError(false);
+        validateWord(word as string);
+        if (isValidWord(word as string)) {
+          const data = await fetchData(word as string);
+          if(data.word !== '') {
+            setIsMsgVisible(false);
+          } else {
+            setIsMsgVisible(true);
+            setIsVisible(false);
+          }
+          setDataResponse(data);
+          //setAudioSource(data.audioSource);
+        }
     }
     init();
     }
   }, [word, paramsWord]);
+
+  function handleToggleDummy() {
+    //Toggle dummy for having switch in the right position in dark mode
+  };
 
   return (
     <div className={`${lightTheme ? lightBgStyle : darkBgStyle} ${fontStyle} min-h-screen flex flex-col items-center`}>
@@ -126,7 +135,7 @@ export default function Page() {
               </div>
               <div className='h-[32px] w-[1px] bg-light-divider mx-4 md:mx-6'></div>
               <div className='flex flex-row items-center justify-center mr-2 md:mr-5'>
-                <input type="checkbox" id="theme-toggle" hidden/>
+                <input type="checkbox" id="theme-toggle" onChange={() => handleToggleDummy()} checked={!lightTheme} hidden/>
                 <label htmlFor="theme-toggle" className={`${styles.switch} ${lightTheme ? lightToggleStyle : darkToggleStyle}`} onClick={handleThemeSwitcher}></label>
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path fill="none" className={`${lightTheme ? lightMoonStyle : darkMoonStyle}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg>
