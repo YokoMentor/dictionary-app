@@ -15,8 +15,34 @@ export interface DataDefinition {
 }
 
 export async function fetchData(word: string): Promise<DataResponse> {
-  const response = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + word);
-  const resultData = await response.json();
+  let resultData;
+  try{
+      const response = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + word); //awaitid pane try..catch sisse. Result data tee eraldi muutujasse, mis on eraldi v2ljaspool try catchi LET-INA.
+  resultData = await response.json();
+  } catch (error){
+    const result: DataResponse = {
+      word: '',
+      pronunciation: '',
+      noun:
+        {
+          partOfSpeech: 'noun',
+          meaning: [],
+          synonyms: [],
+          use:''
+        },
+      verb:
+        {
+          partOfSpeech: 'verb',
+          meaning: [],
+          synonyms: [],
+          use: ''
+        },
+      source: '',
+      audioSource: ''
+    };
+    return result
+  }
+  
   const firstResult = resultData[0];
 
   const result: DataResponse = {

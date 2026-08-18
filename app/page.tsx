@@ -97,6 +97,10 @@ export default function Page() {
       validateWord(word as string);
       if (isValidWord(word as string)) {
         const data = await fetchData(word as string);
+        if(data.word === '') {
+          setIsMsgVisible(true);
+          setIsVisible(false);
+        }
         setDataResponse(data);
         //setAudioSource(data.audioSource);
       }
@@ -143,10 +147,10 @@ export default function Page() {
             {wordError && <div className='text-error justify-start'>Whoops, can&rsquo;t be empty…</div>}
           </div>
           {isMsgVisible &&
-          <div className='flex flex-col justify-center items-center w-full mt-30'>
+          <div className={`${lightTheme ? darkTxtStyle : lightTxtStyle} flex flex-col justify-center items-center w-full mt-30`}>
             <div className='text-[53px] mb-8'>😕</div>
             <h1 className='text-[21px] font-bold mb-5'>No Definitions Found</h1>
-            <p className='text-[19px] leading-6'>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
+            <p className='text-[19px] leading-6 text-light-heading'>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
           </div>}
           {isVisible &&
           <div className='flex flex-col justify-center items-center text-center w-[327px] md:w-[736px]'>
